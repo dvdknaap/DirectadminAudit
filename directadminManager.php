@@ -43,13 +43,13 @@
 
     switch($_ENV[command]) {
       //---
-      case 'KABOEM_CHECK_USER' :
+      case 'CHECK_USER' :
 
       
         $admin = addslashes($_ENV[creator]);
 
-        //$info = trim(file_get('http://www.kaboemprogrammeurs.nl.nl/soap/CheckUser.php?user='.$user.'&server='.$ThisServer));
-        if(strtolower($admin) == 'kaboem') {
+        //$info = trim(file_get('http://www.domain.com/CheckUser.json?user='.$user.'&server='.$ThisServer));
+        if(strtolower($admin) == 'systemname') {
           $msg = "User already exist on the system, choose another username";
           //echo $info;
           $ret = 1;
@@ -58,7 +58,7 @@
         break;
 
       //---
-      case 'KABOEM_CREATE_USER' :
+      case 'CREATE_USER' :
         if($pass && $user) {
           $msg = "Create $_ENV[usertype] $user - $pass ($domain)";
           AddPass($user, $pass, $domain, $_ENV[usertype] == 'user' ? T_MAIN : T_DA);
@@ -69,7 +69,7 @@
 
       //---
       // Change Password
-      case 'KABOEM_CHANGE_USER_PASSWD' :
+      case 'CHANGE_USER_PASSWD' :
         if($pass) {
           $type = 0;
           if($_ENV[options] === 'yes') {
@@ -88,19 +88,19 @@
         break;
 
       //---
-      case 'KABOEM_DESTROY_USER':
+      case 'DESTROY_USER':
         $msg = "Delete $user";
         DelPass($user);
         break;
 
       //---
-      case 'KABOEM_DOMAIN_CREATE':
+      case 'DOMAIN_CREATE':
         $msg = "Add domain $domain for $user";
         AddDomain($user, $domain);
         break;
 
       //---
-      case 'KABOEM_DOMAIN_DESTROY':
+      case 'DOMAIN_DESTROY':
         $msg = "Delete domain $domain for $user";
         DelDomain($user, $domain);
 
@@ -110,7 +110,7 @@
         break;
 
       //---
-      case 'KABOEM_FTP_CREATE':
+      case 'FTP_CREATE':
 				$admin = $user;
 				$user  = $accnt.'@'.$domain;
 				$msg   = "Create FTP $user - $pass";
@@ -118,7 +118,7 @@
         break;
 
       //---
-      case 'KABOEM_FTP_MODIFY':
+      case 'FTP_MODIFY':
 				$admin = $user;
 				$user  = $accnt.'@'.$domain;
         if($pass) {
@@ -129,7 +129,7 @@
         break;
 
       //---
-      case 'KABOEM_FTP_DELETE':
+      case 'FTP_DELETE':
 				$admin = $user;
 				$user  = $accnt.'@'.$domain;
 				$msg   = "Delete FTP: $user - $pass";
@@ -137,7 +137,7 @@
         break;
 
       //---
-      case 'KABOEM_MAIL_CREATE':
+      case 'MAIL_CREATE':
 				$admin = $user;
 				$user  = $accnt.'@'.$domain;
 				$msg   = "Create Mail $user - $pass";
@@ -145,7 +145,7 @@
         break;
 
       //---
-      case 'KABOEM_MAIL_CHANGE':
+      case 'MAIL_CHANGE':
 				$admin = $user;
 				$user  = $accnt.'@'.$domain;
         if($pass) {
@@ -161,7 +161,7 @@
         break;
 
       //---
-      case 'KABOEM_MAIL_DELETE':
+      case 'MAIL_DELETE':
 				$admin = $user;
 				$user  = $accnt.'@'.$domain;
 				$msg   = "Delete Mail: $user - $pass";
@@ -169,7 +169,7 @@
         break;
 
       //---
-      case 'KABOEM_DTB_CREATE':
+      case 'DTB_CREATE':
 				$admin = $user;
 				$user  = $accnt;
 				$msg   = "Create DTB $dtb: $user - $pass";
@@ -200,7 +200,7 @@
         break;
 
       //---
-      case 'KABOEM_DTB_DELETE':
+      case 'DTB_DELETE':
         $admin = $user;
         $user = $dtb;
         $msg = "Delete DTB $user";

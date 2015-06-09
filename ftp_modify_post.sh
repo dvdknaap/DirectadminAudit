@@ -1,5 +1,5 @@
 #!/bin/bash
-command='KABOEM_FTP_MODIFY'
+command='FTP_MODIFY'
 export command
-scripts/custom/kaboem_password_manager.php
+scripts/custom/directadminManager.php
 exit 0;

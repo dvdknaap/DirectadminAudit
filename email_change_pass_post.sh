@@ -1,5 +1,5 @@
 #!/bin/bash
-command='KABOEM_MAIL_CHANGE'
+command='MAIL_CHANGE'
 export command
-scripts/custom/kaboem_password_manager.php
+scripts/custom/directadminManager.php
 exit 0;

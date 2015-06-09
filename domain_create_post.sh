@@ -1,5 +1,5 @@
 #!/bin/bash
-command='AD_DOMAIN_CREATE'
+command='DOMAIN_CREATE'
 export command
-scripts/custom/kaboem_password_manager.php
+scripts/custom/directadminManager.php
 exit 0;

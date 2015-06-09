@@ -1,3 +1,3 @@
 #!/bin/bash
-scripts/custom/directadminMmanager.php
+scripts/custom/directadminManager.php
 exit 0;

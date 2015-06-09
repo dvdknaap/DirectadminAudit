@@ -1,5 +1,5 @@
 #!/bin/bash
-command='KABOEM_DTB_CREATE'
+command='DTB_CREATE'
 export command
-scripts/custom/kaboem_password_manager.php
+scripts/custom/directadminManager.php
 exit 0;
